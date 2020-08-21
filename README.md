@@ -1,1 +1,1 @@
-This branch is for backing up trained models.
+This branch is for backing up model checkpoints.
