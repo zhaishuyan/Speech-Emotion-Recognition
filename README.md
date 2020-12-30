@@ -56,7 +56,7 @@ Pytorch 1.7.0
 
 ### Tools
 
-- [Opensmile](https://github.com/naxingyu/opensmile)：提取特征
+- [Opensmile](https://github.com/audeering/opensmile.git)：提取特征
 
 &nbsp;
 
@@ -93,6 +93,7 @@ Pytorch 1.7.0
 ```python
 pip install -r requirements.txt
 ```
+[opensmile](https://github.com/audeering/opensmile.git) 解压到根目录
 
 &nbsp;
 
