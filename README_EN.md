@@ -12,8 +12,6 @@ English Document | [中文文档](README.md)
 
 Python 3.6.7
 
-Keras 2.2.4
-
 Pytorch 1.7.0
 
 &nbsp;
@@ -57,7 +55,7 @@ Pytorch 1.7.0
 
 ### Tools
 
-- [Opensmile](https://github.com/naxingyu/opensmile): extract features
+- [Opensmile](https://github.com/audeering/opensmile): extract features
 
 &nbsp;
 
@@ -121,6 +119,7 @@ First of all, you should extract features of each audio in dataset and store the
 ```python
 python preprocess.py --config configs/example.yaml
 ```
+[opensmile][https://github.com/audeering/opensmile.git]
 
 where `configs/test.yaml` is the path to your config file
 
