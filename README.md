@@ -1,8 +1,8 @@
 # Speech Emotion Recognition 
 
-用 LSTM、CNN、SVM、MLP 进行语音情感识别，Keras 实现。
+用 LSTM 进行语音情感识别，pytorch实现。
 
-改进了特征提取方式，识别准确率提高到了 80% 左右。原来的版本的存档在 [First-Version 分支](https://github.com/Renovamen/Speech-Emotion-Recognition/tree/First-Version)。
+识别准确率 80% 左右。将原项目由Keras版本改写为pytorch版本（原项目中的CNN, MLP, SVM尚未改写）
 
 [English Document](README_EN.md) | 中文文档
 
@@ -12,7 +12,7 @@
 
 Python 3.6.7
 
-Keras 2.2.4
+Pytorch 1.7.0
 
 &nbsp;
 
@@ -23,9 +23,7 @@ Keras 2.2.4
 │   ├── common.py          // 所有模型的通用部分（即所有模型都会继承这个类）
 │   ├── dnn                // 神经网络模型
 │   │   ├── dnn.py         // 神经网络的通用部分
-│   │   ├── cnn.py         // CNN
 │   │   └── lstm.py        // LSTM
-│   └── ml.py              // SVM & MLP
 ├── extract_feats/         // 特征提取
 │   ├── librosa.py         // librosa 提取特征
 │   └── opensmile.py       // Opensmile 提取特征
@@ -37,7 +35,9 @@ Keras 2.2.4
 ├── config/                // 配置参数（.yaml）
 ├── train.py               // 训练模型
 ├── predict.py             // 用训练好的模型预测指定音频的情感
-└── preprocess.py          // 数据预处理（提取数据集中音频的特征并保存）
+├── preprocess.py          // 数据预处理（提取数据集中音频的特征并保存）
+└── opensmile-3.0-linux-x64 // opensmile工具
+
 ```
 
 &nbsp;
@@ -46,9 +46,8 @@ Keras 2.2.4
 
 ### Python
 
-- [scikit-learn](https://github.com/scikit-learn/scikit-learn)：SVM & MLP 模型，划分训练集和测试集
-- [Keras](https://github.com/keras-team/keras)：LSTM、CNN
-- [TensorFlow](https://github.com/tensorflow/tensorflow)：Keras 的后端
+- [scikit-learn](https://github.com/scikit-learn/scikit-learn)：划分训练集和测试集
+- [pytorch](https://github.com/pytorch/pytorch)：LSTM
 - [librosa](https://github.com/librosa/librosa)：提取特征、波形图
 - [SciPy](https://github.com/scipy/scipy)：频谱图
 - [pandas](https://github.com/pandas-dev/pandas)：加载特征
@@ -67,7 +66,7 @@ Keras 2.2.4
 
    英文，24 个人（12 名男性，12 名女性）的大约 1500 个音频，表达了 8 种不同的情绪（第三位数字表示情绪类别）：01 = neutral，02 = calm，03 = happy，04 = sad，05 = angry，06 = fearful，07 = disgust，08 = surprised。
 
-2. [SAVEE](http://kahlan.eps.surrey.ac.uk/savee/Download.html)
+2. [SAVEE [README.md](README.md) ](http://kahlan.eps.surrey.ac.uk/savee/Download.html)
 
    英文，4 个人（男性）的大约 500 个音频，表达了 7 种不同的情绪（第一个字母表示情绪类别）：a = anger，d = disgust，f = fear，h = happiness，n = neutral，sa = sadness，su = surprise。
 
@@ -78,6 +77,10 @@ Keras 2.2.4
 4. CASIA
 
    汉语，4 个人（2 名男性，2 名女性）的大约 1200 个音频，表达了 6 种不同的情绪：neutral，happy，sad，angry，fearful，surprised。
+   
+5. [MEAD](https://wywu.github.io/projects/MEAD/MEAD.html)
+
+   英语，视频数据集，60个人的40小时的视频，表达了8种不同的情绪: angry, disgust, contempt, fear, happy, neutral, sad, surprise.，并且每个情绪分为3个level。
 
 &nbsp;
 
@@ -90,8 +93,6 @@ Keras 2.2.4
 ```python
 pip install -r requirements.txt
 ```
-
-安装 [Opensmile](https://github.com/naxingyu/opensmile)。
 
 &nbsp;
 
@@ -221,8 +222,3 @@ Spectrogram(file_path)
 ```
 
 &nbsp;
-
-## Other Contributors
-
-- [@Zhaofan-Su](https://github.com/Zhaofan-Su)
-- [@Guo Hui](https://github.com/guohui15661353950)

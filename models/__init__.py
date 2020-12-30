@@ -1,7 +1,7 @@
 from .dnn import LSTM
-from .dnn import CNN1D
-from .ml import SVM
-from .ml import MLP
+# from .dnn import CNN1D
+# from .ml import SVM
+# from .ml import MLP
 
 '''
 setup(): 创建模型

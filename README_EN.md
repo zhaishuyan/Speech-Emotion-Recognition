@@ -1,8 +1,8 @@
 # Speech Emotion Recognition 
 
-Speech emotion recognition using LSTM, CNN, SVM and MLP, implemented in Keras.
+Speech emotion recognition using LSTM, implemented in Pytorch.
 
-We have improved the feature extracting method and achieved higher accuracy (about 80%). The original version is backed up under [First-Version](https://github.com/Renovamen/Speech-Emotion-Recognition/tree/First-Version) branch.
+We have improved the feature extracting method and achieved higher accuracy (about 80%). This project is a rewrite from the Keras version.
 
 English Document | [中文文档](README.md)
 
@@ -13,6 +13,8 @@ English Document | [中文文档](README.md)
 Python 3.6.7
 
 Keras 2.2.4
+
+Pytorch 1.7.0
 
 &nbsp;
 
@@ -45,9 +47,8 @@ Keras 2.2.4
 
 ### Python
 
-- [scikit-learn](https://github.com/scikit-learn/scikit-learn): SVM & MLP, split data into training set and testing set
-- [Keras](https://github.com/keras-team/keras): LSTM
-- [TensorFlow](https://github.com/tensorflow/tensorflow): backend of Keras
+- [scikit-learn](https://github.com/scikit-learn/scikit-learn): split data into training set and testing set
+- [pytorch](https://github.com/pytorch/pytorch)：LSTM
 - [librosa](https://github.com/librosa/librosa): extract features, waveform
 - [SciPy](https://github.com/scipy/scipy): spectrogram
 - [pandas](https://github.com/pandas-dev/pandas): Load features
@@ -77,6 +78,10 @@ Keras 2.2.4
 4. CASIA
 
    Chinese, around 1200 audios from 4 people (2 male and 2 female) including 6 different emotions: neutral, happy, sad, angry, fearful and surprised.
+   
+5. [MEAD](https://wywu.github.io/projects/MEAD/MEAD.html)
+
+   English, around 40 hours videos from 60 actors and actresses including 8 different emotions at three different intensity levels (except for neutral): angry, disgust, contempt, fear, happy, neutral, sad, surprise.
 
 &nbsp;
 
@@ -89,8 +94,6 @@ Install dependencies:
 ```python
 pip install -r requirements.txt
 ```
-
-Install [Opensmile](https://github.com/naxingyu/opensmile).
 
 &nbsp;
 
@@ -229,9 +232,3 @@ from Utils import Spectrogram
 Spectrogram(file_path)
 ```
 
-&nbsp;
-
-## Other Contributors
-
-- [@Zhaofan-Su](https://github.com/Zhaofan-Su)
-- [@Guo Hui](https://github.com/guohui15661353950)
